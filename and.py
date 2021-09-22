@@ -2,6 +2,10 @@ from utils.model import Perceptron
 from utils.all_utils import prepare_data
 import pandas as pd
 import numpy as np
+import logging
+
+logging_str="[%(asctime)s: %(levelname)s: %(module)s] %(message)s"
+logging.basicConfig(level=logging.INFO, format=logging_str)
 
 AND = {
     "x1": [0,0,1,1],
@@ -12,9 +16,6 @@ AND = {
 df = pd.DataFrame(AND)
 
 df
-
-
-
 X,y = prepare_data(df)
 
 ETA = 0.3 # 0 and 1

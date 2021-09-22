@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import joblib # FOR SAVING MY MODEL AS A BINARY FILE
 from matplotlib.colors import ListedColormap
+import logging
 
 import os
 
@@ -15,8 +16,7 @@ def prepare_data(df):
       tuple: it returns the tuples of dependent and independent variables
   """
   x=df.drop("y",axis=1)
-
-  y=df("y")
+  y=df["y"]
   return x,y
 
 def save_model(model, filename):
