@@ -20,12 +20,22 @@ def prepare_data(df):
   return x,y
 
 def save_model(model, filename):
+  """This saves the trained model to
+  Args:
+      model(python object): trained model to
+      filename(str): path to save the model
+  """
   model_dir = "models"
   os.makedirs(model_dir, exist_ok=True) # ONLY CREATE IF MODEL_DIR DOESN"T EXISTS
   filePath = os.path.join(model_dir, filename) # model/filename
   joblib.dump(model, filePath)
 
 def save_plot(df, file_name, model):
+  """
+  :param df: it is dataframe
+  :param file_name: its path to save the plot
+  :param model: trained model
+  """
   def _create_base_plot(df):
     df.plot(kind="scatter", x="x1", y="x2", c="y", s=100, cmap="winter")
     plt.axhline(y=0, color="black", linestyle="--", linewidth=1)
